@@ -26,4 +26,28 @@ module.exports = function(Model, options) {
       return next();
     });
   }
+
+  Model.nextDueDate = function (id, callback) {
+    Model.findById(
+      id,
+      {"fields": {"dueDate": true}},
+      callback
+    );
+  }
+
+  Model.remoteMethod('nextDueDate', {
+    accepts: [{
+      arg: 'id',
+      type: 'number',
+      required: true
+    }],
+    returns: {
+      root: true
+    },
+    http: {
+      verb: 'get',
+      path: '/:id/next-due-date'
+    },
+    description: 'Get item next due date'
+  });
 }
