@@ -3,6 +3,11 @@
   "plural": "projects",
   "base": "PersistedModel",
   "idInjection": true,
+  "mixins": {
+    "DueDate": {
+      "intervalInDays": "60"
+    }
+  },
   "options": {
     "validateUpsert": true
   },
