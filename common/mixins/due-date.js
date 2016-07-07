@@ -5,11 +5,11 @@ module.exports = function(Model, options) {
   'use strict';
 
   Model.defineProperty('stepDate', {
-    "type": "date"
+    'type': 'date'
   });
 
   Model.defineProperty('dueDate', {
-    "type": "date"
+    'type': 'date'
   });
 
   if (options.intervalInDays) {
@@ -30,10 +30,10 @@ module.exports = function(Model, options) {
   Model.nextDueDate = function (id, callback) {
     Model.findById(
       id,
-      {"fields": {"dueDate": true}},
+      {'fields': {'dueDate': true}},
       callback
     );
-  }
+  };
 
   Model.remoteMethod('nextDueDate', {
     accepts: [{
@@ -50,4 +50,4 @@ module.exports = function(Model, options) {
     },
     description: 'Get item next due date'
   });
-}
+};
