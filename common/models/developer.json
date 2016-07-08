@@ -3,6 +3,11 @@
   "plural": "developers",
   "base": "PersistedModel",
   "idInjection": true,
+  "mixins": {
+    "DueDate": {
+      "intervalInDays": "14"
+    }
+  },
   "options": {
     "validateUpsert": true
   },
